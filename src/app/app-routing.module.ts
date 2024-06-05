@@ -1,17 +1,23 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Componente1Component } from './componente1/componente1.component';
-import { Componente2Component } from './componente2/componente2.component';
 import { InicioComponent } from './modules/inicio/pages/inicio/inicio.component';
 
 const routes: Routes = [
- // { path: "componente1", component: Componente1Component },
-  // { path: "componente2", component: Componente2Component },
+  // ruta por defecto de la instalacion
+  
 
- // { path: "", component: Componente2Component },
 
   { path: "", component: InicioComponent },
-  { path: "", loadChildren: () => import('./modules/inicio/inicio.module').then(m => m.InicioModule) }
+
+  //ruta que nos vincule el modulo de inicio y todo su contenido
+
+  { path: "", loadChildren: () => import('./modules/inicio/inicio.module').then(m => m.InicioModule) },
+
+  { path: "", loadChildren: () => import('./modules/producto/producto.module').then(m => m.ProductoModule) },
+  
+  //path es una ruta, va con comillas vacias porque no queremos que nos cargue todo el modulo. ()=> es una fucion flecha, nos indica la ruta del modulo
+  { path: "", loadChildren: () => import('./modules/autentificacion/autentificacion.module').then(m => m.AutentificacionModule) }
+
 ];
 
 @NgModule({

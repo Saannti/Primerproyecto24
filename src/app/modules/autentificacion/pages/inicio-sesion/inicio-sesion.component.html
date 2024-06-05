@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <h1>Registrate!</h1>
+
+        <i class="material-icons">account_circle</i>
+
+
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre de usuario</mat-label>
+
+            <input [(ngModel)]="perfiless.nombre" matInput placeholder="Ej: santisx">
+
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Ingrese su apellido</mat-label>
+            <input [(ngModel)]="perfiless.apellido" matInput placeholder="Ej: Scianca">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Ingrese su Correo</mat-label>
+            <input [(ngModel)]="perfiless.email" matInput placeholder="Ej: Scianca@gmail.com">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+        </mat-form-field>
+
+
+        <!--rol de usuario-->
+
+        <mat-form-field>
+            <mat-label>Rol de usuario</mat-label>
+            <select [(ngModel)]="perfiless.rol" matNativeControl required>
+                <option value="admin">Administrador</option>
+                <option value="vist">Visitante</option>
+            </select>
+        </mat-form-field>
+
+
+        <div class="example-container">
+            <mat-form-field>
+                <mat-label>Ingrese su contraseña</mat-label>
+                <input [(ngModel)]="perfiless.password" matInput [type]="hide ? 'password' : 'text'" #input minlength="6"
+                    required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint align="start">Minimo:6/{{input.value.length}}</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <!--Boton para enviar la informacion del usuario a la base de datos-->
+        <button class="boton" mat-raised-button color="primary" (click)="comparador()">Ingresar</button>
+    </div>
+</div>
